@@ -1,3 +1,111 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx", ".js", "jsx"]
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.{ts,tsx}"],
+      "env": { "jest": true }
+    }
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [2, { "extensions": [".tsx"] }],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/display-name": [2, { "ignoreTranspilerName": true }],
+    "import/order": [
+      "error",
+      {
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "{hooks,utils,styles,components,views,context,core,assets,hooks/**,utils/**,styles/**,components/**,views/**,context/**,core/**,assets/**}",
+            "group": "parent"
+          },
+          {
+            "pattern": "*.scss",
+            "group": "index",
+            "patternOptions": { "matchBase": true },
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always"
+      }
+    ],
+    "import/extensions": [
+      2,
+      {
+        "tsx": "never",
+        "scss": "always",
+        "png": "always"
+      }
+    ],
+    "@typescript-eslint/member-delimiter-style": [
+      2,
+      {
+        "multiline": {
+          "delimiter": "semi",
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "semi",
+          "requireLast": false
+        },
+        "multilineDetection": "brackets"
+      }
+    ],
+    "react/jsx-key": "error",
+    "import/prefer-default-export": [0],
+    "react/jsx-max-props-per-line": [
+      "error",
+      { "maximum": { "single": 2, "multi": 1 } }
+    ],
+    "react/require-default-props": [0],
+    "react/jsx-props-no-spreading": [0],
+    "@typescript-eslint/lines-between-class-members": [
+      "error",
+      "always",
+      { "exceptAfterSingleLine": true }
+    ],
+    "@typescript-eslint/no-explicit-any": ["error"],
+    "react-hooks/exhaustive-deps": [0],
+    "no-underscore-dangle": [0]
+  }
 }
