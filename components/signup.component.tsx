@@ -74,7 +74,6 @@ const SignUpForm = () => {
         helperText={formik.touched.email && formik.errors.email}
         {...formik.getFieldProps('email')}
       />
-      <br />
 
       <TextField
         className="TextFieldItem"

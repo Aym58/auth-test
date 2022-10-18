@@ -1,3 +1,6 @@
+import React from 'react';
+import { CacheProvider } from '@emotion/react';
+
 import { useState, useEffect } from 'react';
 import { userService } from '../services/user.service';
 import type { AppProps } from 'next/app';
