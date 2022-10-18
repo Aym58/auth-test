@@ -1,22 +1,13 @@
 import type { NextPage } from 'next';
-import { Formik } from 'formik';
+import SignInForm from '../../components/signin.component';
 
-type SignInFormValues = {
-  email: string;
-  password: string;
-};
-
-const SignIn: NextPage = () => {
-  const initialValues: SignInFormValues = {
-    email: '',
-    password: '',
-  };
-
+const SignInPage: NextPage = (props) => {
   return (
     <div>
-      <h1>Sign In</h1>
+      <h2>Sign In</h2>
+      <SignInForm />
     </div>
   );
 };
 
-export default SignIn;
+export default SignInPage;

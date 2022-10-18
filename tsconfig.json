@@ -17,6 +17,14 @@
     "incremental": true,
     "baseUrl": "src"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/404.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/404.tsx",
+    "components/forms/signin-form.jsx",
+    "models/user-model.js",
+    "services/user.service.ts"
+  ],
   "exclude": ["node_modules", ".next"]
 }

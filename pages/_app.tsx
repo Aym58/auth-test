@@ -1,8 +1,29 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import { useState, useEffect } from 'react';
+import { userService } from '../services/user.service';
+import type { AppProps } from 'next/app';
+import Header from '../components/header.component';
+import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function App({ Component, pageProps }: AppProps) {
+  const [authorized, setAuthorized] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (userService.userValue) {
+      setAuthorized(true);
+    }
+    if (!userService.userValue) {
+      setAuthorized(false);
+    }
+  }, [userService.userValue]);
+
+  return (
+    <>
+      <Header auth={authorized} />
+      <div className="body-container">
+        <Component {...pageProps} />
+      </div>
+    </>
+  );
 }
 
-export default MyApp
+export default App;

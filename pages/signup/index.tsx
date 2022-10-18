@@ -1,11 +1,13 @@
 import type { NextPage } from 'next';
+import SignUpForm from '../../components/signup.component';
 
-const SignUp: NextPage = () => {
+const SignUpPage: NextPage = () => {
   return (
     <div>
-      <h1>Sign up page</h1>
+      <h2>Create an account</h2>
+      <SignUpForm />
     </div>
   );
 };
 
-export default SignUp;
+export default SignUpPage;
